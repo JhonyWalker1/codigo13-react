@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { getMovies } from "../../service/movies";
 import {
     Container,
     Grid,
