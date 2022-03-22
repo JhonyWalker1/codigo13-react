@@ -14,6 +14,8 @@ import {
 } from "@mui/material";
 import { getDataFromPokemon } from "../../service";
 
+import { Link } from "react-router-dom";
+
 const Flags = () => {
   const [countries, setCountries] = useState([]);
 
@@ -97,6 +99,7 @@ const Flags = () => {
           countries.map((country) => (
             <Grid item md={3} xs={12}>
               <Card>
+              <Link to={`/flags/flagdetail/${country.name.common}`}>
                 <CardMedia
                   component="img"
                   height={200}
@@ -108,6 +111,7 @@ const Flags = () => {
                   <p>Region: {country.region}</p>
                   <p>Capital: {country.capital}</p>
                 </CardContent>
+                </Link>
               </Card>
             </Grid>
           ))

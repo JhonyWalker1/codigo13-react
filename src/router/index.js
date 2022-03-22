@@ -10,6 +10,10 @@ import Home from "../pages/Home"
 import Flags from "../pages/Flags";
 import Youtube from "../pages/Youtube";
 import YoutubeAdministrator from "../pages/YoutubeAdministrator";
+import MovieUpdate from "../pages/MovieUpdate";
+import { Link } from "react-router-dom";
+import FLagsDetail from "../components/FlagsDetail";
+
 
 //Nuestro Router va a ser un componente el cual se encargue de retornar 
 //las rutas con su respectiva vista
@@ -21,8 +25,10 @@ const Router = () => {
             <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/flags" element={<Flags />}/>
+                <Route path="/flags/flagdetail/:names" element={<FLagsDetail />}/>
                 <Route path="/youtube" element={<Youtube />}/>
                 <Route path="/youtube/administrador" element={<YoutubeAdministrator />}/>
+                <Route path="/youtube/administrador/editar/:id" element={<MovieUpdate />}/>
             </Routes>
         </BrowserRouter>
     )

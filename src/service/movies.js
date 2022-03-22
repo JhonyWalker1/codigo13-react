@@ -3,6 +3,23 @@
  */
  const URL = "https://622ab12914ccb950d222bda6.mockapi.io/api/v1/movies";
 
+ const URLP= "https://restcountries.com/v3.1/name"
+
+
+
+  export const getPaisDetail = async (names)=> {
+    try{
+      const response = await fetch(`${URLP}/${names}`);
+     const data = await response.json();
+     return data;
+    }catch(error){
+      console.log(error.message);
+    }
+  };
+
+
+
+
  /**
   * Funcion para listar las peliculas
   */
