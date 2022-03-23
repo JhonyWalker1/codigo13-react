@@ -13,22 +13,27 @@ import YoutubeAdministrator from "../pages/YoutubeAdministrator";
 import MovieUpdate from "../pages/MovieUpdate";
 import { Link } from "react-router-dom";
 import FLagsDetail from "../components/FlagsDetail";
+import Main from "../layouts/Main";
+import Login from "../pages/Login";
 
 
 //Nuestro Router va a ser un componente el cual se encargue de retornar 
-//las rutas con su respectiva vista
+//las rutas con su respectiva vista.
 
 const Router = () => {
     //como esto es un componente tenemos que usar return para poder crear las rutas
     return (
         <BrowserRouter>
             <Routes>
+                <Route element={<Main />}>
                 <Route path="/" element={<Home />}/>
                 <Route path="/flags" element={<Flags />}/>
                 <Route path="/flags/flagdetail/:names" element={<FLagsDetail />}/>
                 <Route path="/youtube" element={<Youtube />}/>
                 <Route path="/youtube/administrador" element={<YoutubeAdministrator />}/>
                 <Route path="/youtube/administrador/editar/:id" element={<MovieUpdate />}/>
+                </Route>
+                <Route path="login" element={<Login />} />
             </Routes>
         </BrowserRouter>
     )

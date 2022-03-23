@@ -1,0 +1,26 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.lista a{
+    margin: 6px;
+    color: black;
+}
+
+.img{
+    width: 100px;
+    border-radius: 100px;
+}
+
+.lista ul {
+    display: flex;
+    
+}
+
+a:hover{
+    color: aqua !important;
+}
