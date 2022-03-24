@@ -1,16 +1,57 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Button, Grid, Card, TextField, CardContent } from "@mui/material";
 import bgLogin from "../../assets/bg-login.png";
 import { UserContext } from "../../Context/UserContext";
+import swal from "sweetalert";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
-  const { user, storeUser } = useContext(UserContext);
+  const { storeUser } = useContext(UserContext);
+
+  const [userData, setUserData] = useState({
+    email: '',
+    password: '',
+});
+  const handleChangeInput = (e) => {
+      //Obtener el email y password del form
+      const {value, name} = e.target;
+
+      setUserData({
+        ...userData,
+        [name]: value,
+      })
+  };
 
   const handleClickLogin = () => {
-    storeUser({
-      name: "Juanita",
-      last_name: "Cardenas",
-    });
+    if (userData.email === "pepe@gmail.com" && userData.password === "123456"){
+      const user = {
+        nombre: "pepe",
+        apellido: "zapata",
+        correo: userData.email,
+        edad: 21,
+        trabajo: "software developer",
+        dni: "13245687",
+        cel: "9999999"
+      }
+      storeUser(user);
+      swal({
+        icon:"success",
+        title: "Buenarda",
+        text: "todo good",
+      })
+
+      //return <Navigate to="/youtube/administrador" />
+
+      window.location.href = "/youtube/administrador"
+
+    } else {
+      swal({
+        icon:"error",
+        title: "Error",
+        text: "eEmail or password incorrect",
+      })
+    }
+    
   };
 
   return (
@@ -21,9 +62,6 @@ const Login = () => {
       sx={{ height: "100vh", padding: 20, backgroundColor: "#FFD885" }}
     >
       <Grid item md={6}>
-        <h4>
-          {user?.name} {user?.last_name}
-        </h4>
         <img src={bgLogin} width={600} alt="" />
       </Grid>
       <Grid item md={6}>
@@ -37,10 +75,10 @@ const Login = () => {
             </p>
             <Grid container spacing={3} mt={5}>
               <Grid item md={12}>
-                <TextField label="Email" fullWidth />
+                <TextField label="Email" fullWidth name="email"  onChange={handleChangeInput}/>
               </Grid>
               <Grid item md={12}>
-                <TextField label="Password" fullWidth />
+                <TextField label="Password" fullWidth name="password"  onChange={handleChangeInput}/>
               </Grid>
               <Grid item md={12}>
                 <Button
