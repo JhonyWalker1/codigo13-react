@@ -1,38 +1,36 @@
-
-.nav-ecommerce{
+.nav-ecommerce {
     background-color: #fafafa;
     overflow: hidden;
-}
-
-.ul-ecommerce{
+  }
+  
+  .ul-ecommerce {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    
-}
-
-.li-basket a{
-color: #1f2937;
-display: flex;
-align-items: center;
-}
-
-.ul-tag{
+  }
+  
+  .li-basket a {
+    color: #1f2937;
     display: flex;
     align-items: center;
+  }
+  
+  .ul-tags {
+    display: flex;
     justify-content: space-around;
+    align-items: center;
     height: 45px;
     margin: 0;
-}
-
-.ul-tag > li a {
-    color: #1f2937;;
+  }
+  
+  .ul-tags > li a {
+    color: #1f2937;
     font-size: 13px;
     font-weight: 600;
-}
-
-.fresh {
+  }
+  
+  .fresh {
     background-color: #eb5757;
     color: #fff;
     padding: 3px;
-}
+  }
