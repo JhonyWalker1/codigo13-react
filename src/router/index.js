@@ -18,6 +18,7 @@ import Private from "../layouts/Private";
 import Ecommerce from "../layouts/Ecommerce";
 import PopularWeek from "../pages/PopularWeek";
 import BasketView from "../pages/BasketView";
+import CreateProduct from "../pages/CreateProduct";
 
 
 //Nuestro Router va a ser un componente el cual se encargue de retornar
@@ -51,6 +52,8 @@ const Router = () => {
             path="/youtube/administrador/editar/:id"
             element={<MovieUpdate />}
           />
+          <Route
+          path="/ecommerce/create" element={<CreateProduct />} />
         </Route>
       </Routes>
     </BrowserRouter>

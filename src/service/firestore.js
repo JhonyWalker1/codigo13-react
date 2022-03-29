@@ -1,6 +1,6 @@
 import  {initializeApp } from "firebase/app"
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
-
+import { getFirestore, collection, getDocs, doc, setDoc, updateDoc,deleteDoc } from "firebase/firestore/lite";
+import {v4 as uuidv4} from "uuid";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBTNLRPtp1seIE0MQQbrYuQGCkj036YMqE",
@@ -27,3 +27,22 @@ export const getProductClothes = async () => {
   const clothes = documentClothes.docs.map((doc) => doc.data());
   return clothes;
 };
+
+// debemos crear una funcion que se encargue de poder crear elementos en la base de datos
+// ojo: vamos a recibir un parametro un objeto
+// que contenga la informacion del producto que estamos creando
+export const storeProductClothe = async (product) => {
+  const id= uuidv4().replaceAll("-","")
+  product.id=id;
+  await setDoc(doc(db, "product_clothes",id ), product);
+};
+
+// para poder actualizar un dato en firebase
+export const updateProductClothe = async (id,product) => {
+  const productRef = doc(db, "product_clothes", id);
+  await updateDoc(productRef, product);
+}
+
+export const deleteProductClothe = async (id) => {
+  await deleteDoc(doc(db, "product_clothes", id));
+}

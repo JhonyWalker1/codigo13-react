@@ -50,13 +50,13 @@ const PopularWeek = () => {
 
   return (
     <Container maxWidth="xl">
-      <Grid container spacing={3} mt={5}>
+      <Grid container spacing={3} mt={1}>
         <Grid item md={12} sm={12} xs={12}>
           <h2 className="center">POPULAR WEEK</h2>
         </Grid>
         {clothes.length > 0 &&
           clothes.map((clothe) => (
-            <Grid item md={3} sm={6} xs={12}>
+            <Grid item md={4} sm={6} xs={12}>
               <img className="product-photo" src={clothe.photo} alt="" />
               <div className="description">
                 <p>{clothe.name}</p>
