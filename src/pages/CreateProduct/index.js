@@ -20,7 +20,7 @@ const CreateProduct = () => {
       };
 
 
-    const handleClickStore = async (e) => {
+    const handleClickStore = async () => {
         await storeProductClothe(values)
         swal ( "Producto Creado", "Succes", "success" )
     }
