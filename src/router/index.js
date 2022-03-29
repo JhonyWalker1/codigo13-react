@@ -44,6 +44,9 @@ const Router = () => {
         </Route>
         {/* ROUTE DEL ADMIN (PRIVADAS) */}
         <Route element={<Private />}>
+        <Route
+          path="/ecommerce/create" element={<CreateProduct />} />
+        </Route>
           <Route
             path="/youtube/administrador"
             element={<YoutubeAdministrator />}
@@ -52,9 +55,7 @@ const Router = () => {
             path="/youtube/administrador/editar/:id"
             element={<MovieUpdate />}
           />
-          <Route
-          path="/ecommerce/create" element={<CreateProduct />} />
-        </Route>
+          
       </Routes>
     </BrowserRouter>
   );
