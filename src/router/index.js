@@ -6,20 +6,22 @@
  */
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
+import Pokemon from "../pages/Pokemon";
 import Flags from "../pages/Flags";
 import Youtube from "../pages/Youtube";
 import YoutubeAdministrator from "../pages/YoutubeAdministrator";
 import MovieUpdate from "../pages/MovieUpdate";
 import FLagsDetail from "../components/FlagsDetail";
-import Main from "../layouts/Main";
 import Login from "../pages/Login";
-import Private from "../layouts/Private";
-import Ecommerce from "../layouts/Ecommerce";
 import PopularWeek from "../pages/PopularWeek";
 import BasketView from "../pages/BasketView";
 import CreateProduct from "../pages/CreateProduct";
 import Profile from "../pages/Profile";
+import Home from "../pages/Home";
+//layout
+import Main from "../layouts/Main";
+import Private from "../layouts/Private";
+import Ecommerce from "../layouts/Ecommerce";
 
 
 //Nuestro Router va a ser un componente el cual se encargue de retornar
@@ -33,7 +35,7 @@ const Router = () => {
         {/* ROUTE DEL MAIN (PUBLICAS) */}
         <Route path="login" element={<Login />} />
         <Route element={<Main />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Pokemon />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flags/flagdetail/:names" element={<FLagsDetail />} />
           <Route path="/youtube" element={<Youtube />} />
@@ -45,9 +47,6 @@ const Router = () => {
         </Route>
         {/* ROUTE DEL ADMIN (PRIVADAS) */}
         <Route element={<Private />}>
-        <Route
-          path="/ecommerce/create" element={<CreateProduct />} />
-        </Route>
           <Route
             path="/youtube/administrador"
             element={<YoutubeAdministrator />}
@@ -56,8 +55,10 @@ const Router = () => {
             path="/youtube/administrador/editar/:id"
             element={<MovieUpdate />}
           />
+          <Route path="/ecommerce/create" element={<CreateProduct />} />
           <Route path="/perfil" element={<Profile />} />
-          
+          <Route path="/home" element={<Home />}/>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

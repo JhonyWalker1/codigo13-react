@@ -1,7 +1,7 @@
 import  {initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs, doc, setDoc, updateDoc,deleteDoc } from "firebase/firestore/lite";
 import {v4 as uuidv4} from "uuid";
-import {getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile} from "firebase/auth";
+import {getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile, onAuthStateChanged, sendEmailVerification} from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBTNLRPtp1seIE0MQQbrYuQGCkj036YMqE",
@@ -51,12 +51,14 @@ export const deleteProductClothe = async (id) => {
 //vamos a crear una funcion que reciba un email y password
 // y cree una cuenta en firebase
 
-const auth = getAuth();
+ export const auth = getAuth();
 
-//podemos crear una funcion que nos retorne el usuario actual
-export const getUserFromFirebase =  () => {
-  return auth.currentUser;
-}
+ //Esta funcion va a enviar el correo de verificacion
+ export const sendEmail = async () => {
+    const send = await sendEmailVerification(auth.currentUser);
+    return send
+ }
+
 
   export const updateUserProfile = async (profile) => {
     try{
