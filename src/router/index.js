@@ -18,6 +18,8 @@ import BasketView from "../pages/BasketView";
 import CreateProduct from "../pages/CreateProduct";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
+import Map from "../pages/Map";
+import SignUp from "../pages/SignUp";
 //layout
 import Main from "../layouts/Main";
 import Private from "../layouts/Private";
@@ -34,11 +36,13 @@ const Router = () => {
       <Routes>
         {/* ROUTE DEL MAIN (PUBLICAS) */}
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
         <Route element={<Main />}>
           <Route path="/" element={<Pokemon />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flags/flagdetail/:names" element={<FLagsDetail />} />
           <Route path="/youtube" element={<Youtube />} />
+          <Route path="maps" element={<Map />} />
         </Route>
         {/* ROUTE para ecommerce */}
         <Route element={<Ecommerce />}>

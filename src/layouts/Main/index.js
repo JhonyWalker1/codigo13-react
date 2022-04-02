@@ -22,6 +22,9 @@ const Main = () => {
           <li>
             <Link to="/youtube">Youtube</Link>
           </li>
+          <li>
+            <Link to="/maps">Maps</Link>
+          </li>
           </ul>   
         </div>
       </nav>
